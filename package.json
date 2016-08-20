@@ -1,0 +1,28 @@
+{
+  "name": "territory",
+  "version": "1.0.0",
+  "description": "The territory system simulation game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "build-css": "node-sass --include-path scss public/main.scss public/main.css",
+    "watch-css":"nodemon -e scss -x 'npm run build-css'"
+  },
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "mongodb": "^2.1.11",
+    "mongoose": "4.0.3",
+    "node-sass": "3.4.2"
+  },
+  "engines": {
+    "node": "5.9.1"
+  },
+  "author": "FW",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^3.4.2",
+    "nodemon": "^1.9.1"
+  }
+}

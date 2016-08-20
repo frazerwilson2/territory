@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Territory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css	"> 
+  <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/layouts/email-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="email.css">
+    <!--<![endif]-->
+  <link rel="stylesheet" href="main.css">
+</head>
+<body ng-app="territory">    
+
+      		<div ui-view></div>     
+
+<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script type="text/javascript" src="ui-router.js"></script>
+<script type="text/javascript" src="angular-drag-and-drop-lists.min.js"></script>
+<script src="app.js"></script>
+<script src="controllers/indexCtrl.js"></script>
+<script type="text/javascript" src="routes.js"></script>
+<script src="service.js"></script>
+<script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
+<script>
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
+
+        var menuButton = Y.one('.nav-menu-button'),
+            nav        = Y.one('#nav');
+
+        // Setting the active class name expands the menu vertically on small screens.
+        menuButton.on('click', function (e) {
+            nav.toggleClass('active');
+        });
+
+        // Your application code goes here...
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+<style>
+img {
+	width:100px;
+  height: 100px;
+  display: block;
+}
+.player-form {
+    width: 16%;
+    display: inline-block;
+    border: 1px black solid;
+    padding: 2%;
+    margin: 2%;
+}
+.faded {
+  opacity: 0.1;
+}
+.add-player {
+  position: absolute;
+  z-index: 9;
+}
+</style>
+
+<div ng-hide="showGamesForm">
+<h2>Current games</h2>
+<div ng-repeat="x in games" style="border:1px black solid;"><a ui-sref="game({gameid:x._id})">Game {{$index + 1}}</a> <small style="color:#ccc;">{{x._id}}</small></div>
+<button ng-click="newGameToggle()">New Game</button>
+</div>
+
+
+<div ng-show="showGamesForm" style="padding:30px;">
+<h2>Create new game</h2>
+<a ng-click="newGameToggle()">x</a>
+<div ng-repeat="player in gameForm.players" class="player-form">
+  <a ng-hide="player.active" class="add-player" ng-click="addPlayer(player)">add player {{$index + 1}}</a>
+<div ng-class="({'faded': !player.active})">
+  <div style="background:{{player.color}}">
+  	<img ng-show="player.logo == 0" src="http://vignette1.wikia.nocookie.net/logopedia/images/2/2a/WCW_Logo.png/revision/latest?cb=20140505140514" />
+  	<img ng-show="player.logo == 1" src="http://vignette2.wikia.nocookie.net/logopedia/images/f/f3/WWE_Black_2014.svg/revision/latest?cb=20151113010404" />
+  	<img ng-show="player.logo == 2" src="http://vignette1.wikia.nocookie.net/logopedia/images/5/56/Ecw_logo2001.png/revision/latest?cb=20120418201620" />
+    <a ng-show="player.logo > 0" ng-click="player.logo = player.logo - 1"><<</a>
+    <a ng-show="player.logo < 2" ng-click="player.logo = player.logo + 1">>></a>
+  </div>
+  <div><label>Fed Name</label> <input ng-model="player.name" ng-keyup="player.beltname = player.name + ' Championship'"/></div>
+  <div><label>Belt Name</label> <input ng-model="player.beltname"/></div>
+  <label>
+    <input type="radio" ng-model="player.color" value="red">
+    <span class="checkable">Red</span>
+  </label><br/>
+  <label>
+    <input type="radio" ng-model="player.color" value="green">
+    <span class="checkable">Green</span>
+  </label><br/>
+  <label>
+    <input type="radio" ng-model="player.color" value="blue">
+    <span class="checkable">Blue</span>
+  </label>
+</div>
+</div>
+
+<div>
+  Set starting cash: 
+$<input type="number" ng-keyup="setCashTotal(setCash)" ng-model="setCash" />
+</div>
+
+	<a ng-click="newGame()">Save</a>
+</div>

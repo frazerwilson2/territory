@@ -1,0 +1,18 @@
+html, body, body > .ng-scope, #layout {
+  height: 100%; }
+
+body {
+  background: url("images/bg.jpg") #000;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+#layout {
+  background: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.6); }
+
+#list {
+  border-right: 1px solid #404040;
+  background: rgba(19, 22, 33, 0.5); }
+
+.email-item, .email-content-header {
+  border-bottom: 1px solid #404040; }
